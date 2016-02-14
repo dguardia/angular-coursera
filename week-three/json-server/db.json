@@ -6,7 +6,7 @@
       "image": "images/uthapizza.png",
       "category": "mains",
       "label": "Hot",
-      "price": "4.99",
+      "price": 4.99,
       "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
       "comments": [
         {
@@ -38,6 +38,24 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": 4,
+          "comment": "One more comment",
+          "author": "David Guardia",
+          "date": "2016-02-13T22:44:43.539Z"
+        },
+        {
+          "rating": 5,
+          "comment": "I'm adding 5 start to this great restaurant",
+          "author": "David Guardia",
+          "date": "2016-02-14T17:33:50.634Z"
+        },
+        {
+          "rating": 5,
+          "comment": "adding more comments here!!",
+          "author": "David Guardia",
+          "date": "2016-02-14T18:03:55.946Z"
         }
       ]
     },
@@ -47,7 +65,7 @@
       "image": "images/zucchipakoda.png",
       "category": "appetizer",
       "label": "",
-      "price": "1.99",
+      "price": 1.99,
       "description": "Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce",
       "comments": [
         {
@@ -79,6 +97,12 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": 5,
+          "comment": "Love this dish!",
+          "author": "Susie",
+          "date": "2016-02-13T14:31:45.809Z"
         }
       ]
     },
@@ -209,5 +233,71 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": []
+  "feedback": [
+    {
+      "mychannel": "Email",
+      "firstName": "David",
+      "lastName": "Guardia",
+      "agree": true,
+      "email": "david.guardia@gmail.com",
+      "tel": {
+        "number": "5277203",
+        "areaCode": "201"
+      },
+      "comments": "Here is on of my comments great restaurant",
+      "id": 1
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "another test",
+      "lastName": "testing",
+      "agree": true,
+      "email": "myemail.mail@mail.com",
+      "tel": {
+        "areaCode": "345",
+        "number": "7685987"
+      },
+      "comments": "Here is my comment",
+      "id": 2
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "David",
+      "lastName": "Guardia",
+      "agree": true,
+      "email": "david.guardia@gmail.com",
+      "tel": {
+        "number": "5277203",
+        "areaCode": "201"
+      },
+      "comments": "David Feedback",
+      "id": 3
+    },
+    {
+      "mychannel": "Email",
+      "firstName": "David",
+      "lastName": "Guardia",
+      "agree": true,
+      "email": "david.guardia@gmail.com",
+      "tel": {
+        "number": "5277203",
+        "areaCode": "201"
+      },
+      "comments": "My comments",
+      "id": 4
+    },
+    {
+      "mychannel": "Email",
+      "firstName": "David",
+      "lastName": "Guardia",
+      "agree": true,
+      "email": "david.guardia@gmail.com",
+      "tel": {
+        "number": "12015277203",
+        "areaCode": "121212"
+      },
+      "comments": "dsadasdasdasdasdd",
+      "id": 5
+    }
+  ]
 }

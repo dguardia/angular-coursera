@@ -54,22 +54,28 @@
         <div class="row row-content">
             <div class="col-xs-12 col-sm-9">
                 <h2>Corporate Leadership</h2>
-               <ul class="media-list">
-					<li class="media" ng-repeat="leader in leaders">
-                        <div class="media-left media-middle">
-                            <img class="media-object img-thumbnail"
-                            ng-src="{{leader.image}}" alt="{{leader.name}}">
-                        </div>
-                        <div class="media-body">
-                            <h2 class="media-heading">{{leader.name}}
-                            <span><small>{{leader.designation}}</small></span>
-                            </h2>
-                            <span>{{leader.abbr}}</span>
-                            <p>{{leader.description}}</p>
-                        </div>
-                    </li>
-               </ul>
-
+                <div ng-if="!showCorp">
+                    <h3>{{message}}</h3>
+                </div>
+                <div class="media" ng-if="showCorp">
+                    <ul class="media-list">
+                        <li ng-repeat="people in corpPeople">
+                            <div class="media">
+                                <div class="media-left media-middle">
+                                    <a href="#">
+                                        <img class="media-object img-thumbnail"
+                                             ng-src={{people.image}} alt="{{people.name}}">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h2 class="media-heading" style="display: inline;">{{people.name}}</h2>&nbsp;<h5
+                                        style="display: inline;">{{people.designation}}</h5>
+                                    <p>{{people.description}}</p>
+                                </div>
+                                </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
              <div class="col-xs-12 col-sm-3">
                 <p style="padding:20px;"></p>

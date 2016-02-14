@@ -58,7 +58,6 @@ angular.module('confusionApp')
     .controller('FeedbackController', ['$scope', 'feedbackFactory', function($scope, feedbackFactory) {
 
         $scope.sendFeedback = function() {
-            console.log($scope.feedback);
 
             if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
                 $scope.invalidChannelSelection = true;
@@ -107,50 +106,57 @@ angular.module('confusionApp')
     }])
 
     // implement the IndexController and About Controller here
-    .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
+    .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function ($scope, menuFactory, corporateFactory) {
+
+        //$scope.featured = menuFactory.getDish(2);
+        $scope.featured = {};
         $scope.showDish = false;
-        $scope.message="Loading ...";
-        $scope.dish = menuFactory.getDishes().get({id:0})
+        $scope.message = "Loading ...";
+        $scope.featured = menuFactory.getDishes().get({id: 0})
             .$promise.then(
-                function(response) {
-                    $scope.dish = response;
+                function (response) {
+                    $scope.featured = response;
                     $scope.showDish = true;
                 },
-                function(response) {
+                function (response) {
+                    $scope.message = "Error: " + response.status + " " + response.statusText;
+                }
+            );
+        $scope.showPromotion = false;
+        $scope.promotion = menuFactory.getPromotion().get({id: 0})
+            .$promise.then(
+                function (response) {
+                    $scope.promotion = response;
+                    $scope.showPromotion = true;
+                },
+                function (response) {
                     $scope.message = "Error: " + response.status + " " + response.statusText;
                 }
             );
 
-        $scope.showPromotion = false;
-        $scope.promotionMessage = "Loading...";
-        $scope.promotion = menuFactory.getPromotion(0).get()
+        //$scope.chef = corporateFactory.getLeader(3);
+        $scope.showLeader = false;
+        $scope.chef = corporateFactory.getLeaders().get({id: 3})
             .$promise.then(
-                function(response) {
-                    $scope.promotion = response;
-                    $scope.showPromotion = true;
-                },
-                function(response) {
-                    $scope.promotionMessage = "Error: " + response.status + " " + response.statusText;
-                }
-            );
-
-        $scope.showLeader = true;
-        $scope.leaderStatus = "Loading...";
-        $scope.leader = corporateFactory.getLeader(3).get()
-            .$promise.then(
-                function(response) {
-                    $scope.leader = response;
+                function (response) {
+                    $scope.chef = response;
                     $scope.showLeader = true;
                 },
-                function(response) {
-                    $scope.leaderStatus = "Error: " + response.status + " " + response.statusText;
+                function (response) {
+                    $scope.message = "Error: " + response.status + " " + response.statusText;
                 }
             );
-
     }])
-    .controller('AboutController', ['$scope', '$stateParams', 'corporateFactory', function($scope, $stateParams, corporateFactory){
-        $scope.leaders = corporateFactory.getLeaders();
-    }])
+    .controller('AboutController', ['$scope', 'corporateFactory', function ($scope, corporateFactory) {
+        //$scope.corpPeople = corporateFactory.getLeaders();
+        $scope.showCorp = false;
+        corporateFactory.getLeaders().query(
+            function (response) {
+                $scope.corpPeople = response;
+                $scope.showCorp = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            });
 
-
-;
+    }]);

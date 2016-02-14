@@ -9,32 +9,40 @@ angular.module('confusionApp')
                 {'update': {method: 'PUT'}});
         };
 
-        this.getPromotion = function(index) {
-            return $resource(baseURL + "promotions/" + index);
+
+        this.getPromotion = function() {
+            return $resource(baseURL + "promotions/:id", null,
+                {'update': {method: 'PUT'}});
         };
     }])
 
-    .factory('corporateFactory', ['$resource', 'baseURL', function($resource, baseURL) {
+    .factory('corporateFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
 
         var corpfac = {};
 
-        corpfac.getLeaders = function() {
-            return $resource(baseURL + "leadership/:id");
+        // Implement two functions, one named getLeaders,
+        corpfac.getLeaders = function () {
+            return $resource(baseURL + "leadership/:id", null, {'update': {method: 'PUT'}});
         };
 
-        corpfac.getLeader = function(index) {
-            return $resource(baseURL + "leadership/" + index);
-        };
+        // Remember this is a factory not a service
         return corpfac;
+
     }])
 
     .factory('feedbackFactory', ['$resource', 'baseURL', function($resource, baseURL) {
-        var feedbackfac = {};
 
-        feedbackfac.getFeedback = function() {
-            return $resource(baseURL + "feedback/:id");
+        this.getFeedback = function() {
+            return $resource(baseURL + "feedback/:id", null, {
+                'update': {
+                    method: 'PUT'
+                }
+            });
         };
 
-        return feedbackfac;
+        return {
+            getFeedback: this.getFeedback
+        };
+
     }])
 ;
